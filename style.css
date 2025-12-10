@@ -8,11 +8,12 @@
   --gap:16px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  background: linear-gradient(180deg,#071025 0%, #071330 60%);
+  background: linear-gradient(180deg, #0b1220 0%, #0f1724 60%);
   color: #e6eef8;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -24,7 +25,7 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:14px 20px;
-  background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  background: linear-gradient(90deg, rgba(255,255,255,0.05), transparent);
   position:sticky;
   top:0;
   z-index:50;
@@ -39,7 +40,7 @@ nav{display:flex;gap:10px;align-items:center}
 .nav-btn:hover{background:var(--glass)}
 .outline{border:1px solid rgba(255,255,255,0.06);padding:7px 10px}
 
-main{max-width:1000px;margin:28px auto;padding:0 18px}
+main{max-width:1100px;margin:28px auto;padding:0 18px}
 
 .hero{
   background: linear-gradient(135deg, rgba(94,234,212,0.08), rgba(94,234,212,0.02));
@@ -66,13 +67,24 @@ main{max-width:1000px;margin:28px auto;padding:0 18px}
 .list li{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
 .small{color:var(--muted);font-size:13px}
 
-.div-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.division{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px}
-.list-container{margin-top:12px}
+/* ===== FIXED DIVISI GRID ===== */
+.div-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:var(--gap);
+}
+.division{
+  background:var(--card);
+  padding:14px;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,0.03);
+}
 
+.list-container{margin-top:12px}
 .hidden{display:none}
 
-.modal{position:fixed;inset:0;background:rgba(3,6,12,0.6);display:flex;justify-content:center;align-items:center;z-index:100}
+/* ===== FIXED MODAL ===== */
+.modal{display:none;position:fixed;inset:0;background:rgba(3,6,12,0.6);justify-content:center;align-items:center;z-index:100}
 .modal-card{width:420px;background:linear-gradient(180deg,#071a22,#041018);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
 .modal-close{position:absolute;right:16px;top:16px;background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
 
