@@ -1,0 +1,74 @@
+/* ==== STYLE DIVISI FUTURISTIK ==== */
+
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa3b2;
+  --accent:#5eead4;
+  --text:#ffffff;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container Utama */
+.divisi-container{
+  padding:30px;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.divisi-title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--accent);
+  font-weight:600;
+}
+
+/* Card Divisi */
+.divisi-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px;
+}
+
+.divisi-card{
+  background:var(--card);
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 0 20px rgba(0,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.3s ease;
+  cursor:pointer;
+}
+
+.divisi-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(0,255,255,0.10);
+  border-color:var(--accent);
+}
+
+.divisi-card h3{
+  margin:0 0 10px 0;
+  font-size:20px;
+  color:var(--accent);
+}
+
+.divisi-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Mobile */
+@media (max-width:480px){
+  .divisi-title{
+    font-size:26px;
+  }
+}
