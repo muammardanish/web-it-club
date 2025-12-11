@@ -3,13 +3,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Club IT SMP Muhammadiyah Cipanas</title>
+  <title>Profil - Club IT</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
   <header>
-    <h1>CLUB IT</h1>
+    <h1>Profil Anggota</h1>
     <nav>
       <a href="index.html" class="nav-link">Home</a>
       <a href="dashboard.html" class="nav-link">Dashboard</a>
@@ -25,37 +26,24 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Selamat Datang di Club IT</h2>
-    <p>Eksplorasi dunia teknologi, coding, desain, media, dan teknisi dalam satu wadah.</p>
-
-    <!-- TAMBAH CLASS UNTUK DETEKSI LOGIN -->
-    <a href="register.html" class="btn hero-register">Gabung Sekarang</a>
-  </section>
-
   <section class="divisi-section">
-    <h3>Divisi Kami</h3>
+    <h3>Data Profil</h3>
 
     <div class="divisi-grid">
-      <a href="divisi/coding.html" class="card">
-        <h4>Coding</h4>
-        <p>Belajar HTML, CSS, JS, Python, App</p>
-      </a>
+      <div class="card">
+        <h4>Nama</h4>
+        <p id="userName"></p>
+      </div>
 
-      <a href="divisi/media.html" class="card">
-        <h4>Media</h4>
-        <p>Editing video, konten digital</p>
-      </a>
+      <div class="card">
+        <h4>Email</h4>
+        <p id="userEmail"></p>
+      </div>
 
-      <a href="divisi/design.html" class="card">
-        <h4>Design</h4>
-        <p>UI/UX, poster, ilustrasi</p>
-      </a>
-
-      <a href="divisi/teknisi.html" class="card">
-        <h4>Teknisi</h4>
-        <p>Rakit PC, jaringan, troubleshoot</p>
-      </a>
+      <div class="card">
+        <h4>Divisi</h4>
+        <p id="userDivisi"></p>
+      </div>
     </div>
   </section>
 
@@ -63,20 +51,29 @@
     © Club IT SMP Muhammadiyah Cipanas 2025
   </footer>
 
-  <!-- SCRIPT untuk sembunyikan login/daftar & tombol gabung setelah login -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const isLoggedIn = localStorage.getItem("loggedIn");
+    // CEK LOGIN
+    const loggedIn = localStorage.getItem("loggedIn");
+    const userData = JSON.parse(localStorage.getItem("user"));
 
+    if (!loggedIn || !userData) {
+      window.location.href = "login.html";
+    }
+
+    // TAMPILKAN DATA USER
+    document.getElementById("userName").textContent = userData.nama;
+    document.getElementById("userEmail").textContent = userData.email;
+    document.getElementById("userDivisi").textContent = userData.divisi;
+
+    // Navbar login/logout otomatis
+    document.addEventListener("DOMContentLoaded", () => {
       const loginBtn = document.querySelector(".nav-login");
       const registerBtn = document.querySelector(".nav-register");
       const logoutBtn = document.getElementById("logoutBtn");
-      const heroBtn = document.querySelector(".hero-register");
 
-      if (isLoggedIn) {
+      if (loggedIn) {
         if (loginBtn) loginBtn.style.display = "none";
         if (registerBtn) registerBtn.style.display = "none";
-        if (heroBtn) heroBtn.style.display = "none";
         if (logoutBtn) logoutBtn.style.display = "inline-block";
       } else {
         if (logoutBtn) logoutBtn.style.display = "none";

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Club IT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>ADMIN PANEL</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="index.html">Home</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <section class="divisi-section">
+    <h3>Menu Admin</h3>
+
+    <div class="divisi-grid">
+
+      <div class="card">
+        <h4>Kelola Anggota</h4>
+        <p>Tambah / hapus / edit member Club IT.</p>
+      </div>
+
+      <div class="card">
+        <h4>Pengumuman</h4>
+        <p>Buat pengumuman baru untuk anggota.</p>
+      </div>
+
+      <div class="card">
+        <h4>Kelola Divisi</h4>
+        <p>Edit konten setiap divisi.</p>
+      </div>
+
+      <div class="card">
+        <h4>Pengaturan</h4>
+        <p>Atur tampilan & preferensi admin.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © Club IT SMP Muhammadiyah Cipanas 2025
+  </footer>
+
+  <script>
+    // tombol logout = hapus session
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+    });
+
+    // cek apakah user admin
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Club IT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <label>Email</label>
+      <input type="email" id="email" required>
+
+      <label>Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p>Belum punya akun? <a href="register.html" class="accent">Daftar</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Ambil data user dari localStorage
+      const userData = JSON.parse(localStorage.getItem("user"));
+
+      // Cek jika belum daftar
+      if (!userData) {
+        alert("Akun tidak ditemukan! Silakan daftar dulu.");
+        return;
+      }
+
+      // Cek kecocokan
+      if (email === userData.email && password === userData.password) {
+        localStorage.setItem("loggedIn", "true");
+
+        // Redirect ke halaman utama
+        window.location.href = "index.html";
+      } else {
+        alert("Email atau password salah!");
+      }
+    });
+  </script>
+
+</body>
+</html>
