@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club IT SMP Muhammadiyah Cipanas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #222;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #aaa;
+        }
+
+        .login-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            background-color: #ddd;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Home Section */
+        .home {
+            padding: 4rem 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            animation: slideInLeft 1.2s ease-in-out;
+        }
+
+        .hero-placeholder {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            height: 400px;
+            animation: slideInRight 1s ease-in-out;
+        }
+
+        .hero-placeholder i {
+            font-size: 4rem;
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            animation: slideInLeft 1.4s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* News Section */
+        .news {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-image-placeholder i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-excerpt {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Login/Register Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-color);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 0.8rem;
+            text-align: center;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .tab:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-message {
+            font-size: 1.5rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: var(--accent-color);
+        }
+
+        .dashboard-section {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .task-list, .announcement-list {
+            list-style: none;
+        }
+
+        .task-item, .announcement-item {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .task-item:hover, .announcement-item:hover {
+            background-color: #eee;
+        }
+
+        .task-item:last-child, .announcement-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-info, .announcement-info {
+            flex: 1;
+        }
+
+        .task-title, .announcement-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .task-meta, .announcement-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .task-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background-color: #ffeaa7;
+            color: #fdcb6e;
+        }
+
+        .status-progress {
+            background-color: #dfe6e9;
+            color: #74b9ff;
+        }
+
+        .status-completed {
+            background-color: #55efc4;
+            color: #00b894;
+        }
+
+        .division-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .division-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .division-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .division-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .division-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .division-count {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .quick-nav-item {
+            flex: 1;
+            min-width: 150px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .quick-nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Profile Page */
+        .profile {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .profile-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .profile-sidebar {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .profile-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-avatar-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .profile-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid var(--primary-color);
+        }
+
+        .change-avatar-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .change-avatar-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-division {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .profile-content {
+            flex: 2;
+        }
+
+        .profile-section {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: var(--accent-color);
+        }
+
+        /* Announcements Page */
+        .announcements {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .announcement-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .announcement-date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .announcement-content {
+            margin-bottom: 1rem;
+        }
+
+        .announcement-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .announcement-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .announcement-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Gallery Page */
+        .gallery {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 1rem;
+            color: var(--secondary-color);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .admin-nav {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-nav-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .admin-nav-item.active {
+            border-bottom-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .admin-content {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .admin-table th, .admin-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-table th {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .admin-table tr:hover {
+            background-color: #eee;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .edit-btn, .delete-btn {
+            padding: 0.3rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .edit-btn {
+            background-color: #74b9ff;
+            color: var(--secondary-color);
+        }
+
+        .delete-btn {
+            background-color: #ff7675;
+            color: var(--secondary-color);
+        }
+
+        .edit-btn:hover, .delete-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: #aaa;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .profile-container {
+                flex-direction: column;
+            }
+
+            .profile-sidebar {
+                max-width: 100%;
+            }
+
+            .admin-nav {
+                flex-wrap: wrap;
+            }
+
+            .admin-table {
+                font-size: 0.9rem;
+            }
+
+            .admin-table th, .admin-table td {
+                padding: 0.5rem;
+            }
+        }
+
+        /* Chart Container */
+        .chart-container {
+            height: 200px;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 0;
+            width: 20%;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -25px;
+            width: 20%;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .chart-value {
+            position: absolute;
+            top: -25px;
+            width: 20%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* File Upload */
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .file-upload input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 0.8rem;
+            background-color: var(--light-gray);
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f0f0;
+        }
+
+        .file-upload-label i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <span>Club IT SMP Muhammadiyah Cipanas</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" id="homeLink">Beranda</a></li>
+                <li><a href="#" id="dashboardLink" style="display: none;">Dashboard</a></li>
+                <li><a href="#" id="profileLink" style="display: none;">Profil</a></li>
+                <li><a href="#" id="announcementsLink" style="display: none;">Pengumuman</a></li>
+                <li><a href="#" id="galleryLink">Galeri</a></li>
+                <li><a href="#" id="adminLink" style="display: none;">Admin Panel</a></li>
+                <li><button class="login-btn" id="loginBtn">Login</button></li>
+                <li><button class="login-btn" id="logoutBtn" style="display: none;">Logout</button></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Home Section -->
+            <section class="home" id="homeSection">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>Selamat Datang di Club IT SMP Muhammadiyah Cipanas</h1>
+                        <p>Club IT adalah wadah bagi siswa yang tertarik dengan dunia teknologi informasi. Kami mengembangkan berbagai keterampilan dalam bidang coding, desain, media, dan teknis.</p>
+                        <a href="#" class="cta-button" id="joinBtn">Bergabung Sekarang</a>
+                    </div>
+                    <div class="hero-placeholder">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+
+                <div class="news">
+                    <h2 class="section-title">Berita & Kegiatan</h2>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image-placeholder">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">15 Mei 2025</div>
+                                <h3 class="news-title">Workshop Web Development</h3>
+                                <p class="news-excerpt">Club IT mengadakan workshop web development untuk mengenalkan dasar-dasar HTML, CSS, dan JavaScript kepada anggota baru.</p>
+                                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <div class="news-image-placeholder">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">10 Mei 2025</div>
+                                <h3 class="news-title">Kompetisi Desain Grafis</h3>
+                                <p class="news-excerpt">Divisi Design mengadakan kompetisi desain grafis internal untuk meningkatkan kreativitas anggota dalam membuat karya visual.</p>
+                                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <div class="news-image-placeholder">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">5 Mei 2025</div>
+                                <h3 class="news-title">Peluncuran Media Sosial Club</h3>
+                                <p class="news-excerpt">Divisi Media meluncurkan akun media sosial resmi Club IT untuk mempromosikan kegiatan dan prestasi club.</p>
+                                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section class="dashboard" id="dashboardSection">
+                <div class="dashboard-header">
+                    <h1 class="welcome-message">Selamat Datang, <span id="userName">User</span>!</h1>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span id="userDivision">Divisi</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Total Anggota</h3>
+                            <i class="fas fa-users card-icon"></i>
+                        </div>
+                        <div class="card-value">48</div>
+                        <div class="card-description">Anggota aktif</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Tugas Aktif</h3>
+                            <i class="fas fa-tasks card-icon"></i>
+                        </div>
+                        <div class="card-value">12</div>
+                        <div class="card-description">Tugas sedang dikerjakan</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Proyek Selesai</h3>
+                            <i class="fas fa-project-diagram card-icon"></i>
+                        </div>
+                        <div class="card-value">8</div>
+                        <div class="card-description">Proyek telah selesai</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pengumuman</h3>
+                            <i class="fas fa-bullhorn card-icon"></i>
+                        </div>
+                        <div class="card-value">3</div>
+                        <div class="card-description">Pengumuman baru</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Statistik Anggota per Divisi</h3>
+                        <a href="#" class="view-all">Lihat Detail</a>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 75%; left: 0;">
+                            <div class="chart-value">15</div>
+                        </div>
+                        <div class="chart-label" style="left: 0;">Coding</div>
+                        
+                        <div class="chart-bar" style="height: 60%; left: 20%;">
+                            <div class="chart-value">12</div>
+                        </div>
+                        <div class="chart-label" style="left: 20%;">Media</div>
+                        
+                        <div class="chart-bar" style="height: 85%; left: 40%;">
+                            <div class="chart-value">17</div>
+                        </div>
+                        <div class="chart-label" style="left: 40%;">Design</div>
+                        
+                        <div class="chart-bar" style="height: 40%; left: 60%;">
+                            <div class="chart-value">8</div>
+                        </div>
+                        <div class="chart-label" style="left: 60%;">Teknis</div>
+                        
+                        <div class="chart-bar" style="height: 30%; left: 80%;">
+                            <div class="chart-value">6</div>
+                        </div>
+                        <div class="chart-label" style="left: 80%;">Lainnya</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Tugas & Proyek</h3>
+                        <a href="#" class="view-all">Lihat Semua</a>
+                    </div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <div class="task-info">
+                                <h4 class="task-title">Desain Logo Club IT</h4>
+                                <p class="task-meta">Divisi Design • Deadline: 25 Mei 2025</p>
+                            </div>
+                            <span class="task-status status-progress">Dalam Proses</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-info">
+                                <h4 class="task-title">Pengembangan Website Club</h4>
+                                <p class="task-meta">Divisi Coding • Deadline: 30 Mei 2025</p>
+                            </div>
+                            <span class="task-status status-progress">Dalam Proses</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-info">
+                                <h4 class="task-title">Dokumentasi Kegiatan Workshop</h4>
+                                <p class="task-meta">Divisi Media • Deadline: 20 Mei 2025</p>
+                            </div>
+                            <span class="task-status status-completed">Selesai</span>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-info">
+                                <h4 class="task-title">Setup Jaringan Lab Komputer</h4>
+                                <p class="task-meta">Divisi Teknis • Deadline: 15 Juni 2025</p>
+                            </div>
+                            <span class="task-status status-pending">Menunggu</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Pengumuman Terbaru</h3>
+                        <a href="#" class="view-all">Lihat Semua</a>
+                    </div>
+                    <ul class="announcement-list">
+                        <li class="announcement-item">
+                            <div class="announcement-info">
+                                <h4 class="announcement-title">Rapat Bulanan Club IT</h4>
+                                <p class="announcement-meta">Admin • 1 hari yang lalu</p>
+                            </div>
+                        </li>
+                        <li class="announcement-item">
+                            <div class="announcement-info">
+                                <h4 class="announcement-title">Pendaftaran Anggota Baru Dibuka</h4>
+                                <p class="announcement-meta">Admin • 3 hari yang lalu</p>
+                            </div>
+                        </li>
+                        <li class="announcement-item">
+                            <div class="announcement-info">
+                                <h4 class="announcement-title">Workshop UI/UX Design</h4>
+                                <p class="announcement-meta">Divisi Design • 5 hari yang lalu</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Divisi & Tim</h3>
+                        <a href="#" class="view-all">Lihat Detail</a>
+                    </div>
+                    <div class="division-grid">
+                        <div class="division-card" data-division="coding">
+                            <i class="fas fa-code division-icon"></i>
+                            <h4 class="division-name">Coding</h4>
+                            <p class="division-count">15 Anggota</p>
+                        </div>
+                        <div class="division-card" data-division="media">
+                            <i class="fas fa-photo-video division-icon"></i>
+                            <h4 class="division-name">Media</h4>
+                            <p class="division-count">12 Anggota</p>
+                        </div>
+                        <div class="division-card" data-division="design">
+                            <i class="fas fa-palette division-icon"></i>
+                            <h4 class="division-name">Design</h4>
+                            <p class="division-count">17 Anggota</p>
+                        </div>
+                        <div class="division-card" data-division="teknis">
+                            <i class="fas fa-cogs division-icon"></i>
+                            <h4 class="division-name">Teknis</h4>
+                            <p class="division-count">8 Anggota</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Navigasi Cepat</h3>
+                    </div>
+                    <div class="quick-nav">
+                        <div class="quick-nav-item" id="quickProfile">
+                            <i class="fas fa-user quick-nav-icon"></i>
+                            <p>Profil</p>
+                        </div>
+                        <div class="quick-nav-item" id="quickGallery">
+                            <i class="fas fa-images quick-nav-icon"></i>
+                            <p>Galeri</p>
+                        </div>
+                        <div class="quick-nav-item" id="quickAnnouncements">
+                            <i class="fas fa-bullhorn quick-nav-icon"></i>
+                            <p>Pengumuman</p>
+                        </div>
+                        <div class="quick-nav-item" id="quickAdmin">
+                            <i class="fas fa-cog quick-nav-icon"></i>
+                            <p>Admin Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="profile" id="profileSection">
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <div class="profile-avatar-container">
+                                <div class="profile-avatar" id="profileAvatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="change-avatar-btn" id="changeAvatarBtn">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <h2 class="profile-name" id="profileName">Nama Pengguna</h2>
+                            <p class="profile-division" id="profileDivision">Divisi</p>
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <div class="stat-value">12</div>
+                                    <div class="stat-label">Tugas</div>
+                                </div>
+                                <div class="profile-stat">
+                                    <div class="stat-value">8</div>
+                                    <div class="stat-label">Proyek</div>
+                                </div>
+                                <div class="profile-stat">
+                                    <div class="stat-value">95%</div>
+                                    <div class="stat-label">Kehadiran</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-section">
+                            <h3 class="profile-section-title">Informasi Pribadi</h3>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <span class="info-label">Nama Lengkap</span>
+                                    <span class="info-value" id="fullNameValue">Nama Pengguna</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Email</span>
+                                    <span class="info-value" id="emailValue">email@example.com</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">NIS</span>
+                                    <span class="info-value">1234567890</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Kelas</span>
+                                    <span class="info-value">VIII-A</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Divisi</span>
+                                    <span class="info-value" id="divisionValue">Divisi</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Bergabung Sejak</span>
+                                    <span class="info-value">1 Januari 2025</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="profile-section">
+                            <h3 class="profile-section-title">Riwayat Kegiatan</h3>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <span class="info-label">Workshop Web Development</span>
+                                    <span class="info-value">15 Mei 2025</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Kompetisi Desain Grafis</span>
+                                    <span class="info-value">10 Mei 2025</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-label">Peluncuran Media Sosial</span>
+                                    <span class="info-value">5 Mei 2025</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Announcements Section -->
+            <section class="announcements" id="announcementsSection">
+                <h2 class="section-title">Pengumuman</h2>
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Rapat Bulanan Club IT</h3>
+                        <div class="announcement-date">1 hari yang lalu</div>
+                    </div>
+                    <div class="announcement-content">
+                        <p>Diberitahukan kepada seluruh anggota Club IT SMP Muhammadiyah Cipanas bahwa akan diadakan rapat bulanan pada:</p>
+                        <p><strong>Hari/Tanggal:</strong> Sabtu, 20 Mei 2025</p>
+                        <p><strong>Waktu:</strong> 09.00 - 11.00 WIB</p>
+                        <p><strong>Tempat:</strong> Lab Komputer SMP Muhammadiyah Cipanas</p>
+                        <p>Mohon seluruh anggota untuk hadir tepat waktu. Agenda rapat akan membahas evaluasi kegiatan bulan ini dan perencanaan kegiatan bulan depan.</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span>Admin Club IT</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="fas fa-thumbs-up"></i> 12</button>
+                            <button class="action-btn"><i class="fas fa-comment"></i> 3</button>
+                            <button class="action-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Pendaftaran Anggota Baru Dibuka</h3>
+                        <div class="announcement-date">3 hari yang lalu</div>
+                    </div>
+                    <div class="announcement-content">
+                        <p>Club IT SMP Muhammadiyah Cipanas membuka pendaftaran anggota baru periode 2025/2026. Bagi siswa yang tertarik dengan dunia teknologi informasi, ini adalah kesempatan emas untuk mengembangkan skill dan bakat.</p>
+                        <p><strong>Persyaratan:</strong></p>
+                        <ul>
+                            <li>Siswa aktif SMP Muhammadiyah Cipanas</li>
+                            <li>Memiliki minat di bidang IT</li>
+                            <li>Bersedia aktif mengikuti kegiatan club</li>
+                        </ul>
+                        <p>Pendaftaran dibuka mulai tanggal 5 September hingga 20 September 2025. Formulir pendaftaran dapat diambil di ruang Lab Komputer atau menghubungi ketua club.</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span>Admin Club IT</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="fas fa-thumbs-up"></i> 25</button>
+                            <button class="action-btn"><i class="fas fa-comment"></i> 8</button>
+                            <button class="action-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Workshop UI/UX Design</h3>
+                        <div class="announcement-date">5 hari yang lalu</div>
+                    </div>
+                    <div class="announcement-content">
+                        <p>Divisi Design akan mengadakan workshop UI/UX Design untuk meningkatkan kemampuan anggota dalam merancang antarmuka pengguna yang menarik dan fungsional.</p>
+                        <p><strong>Narasumber:</strong> Kak Ahmad, Praktisi UI/UX Design</p>
+                        <p><strong>Hari/Tanggal:</strong> Minggu, 28 Oktober 2025</p>
+                        <p><strong>Waktu:</strong> 08.00 - 12.00 WIB</p>
+                        <p><strong>Tempat:</strong> Lab Komputer SMP Muhammadiyah Cipanas</p>
+                        <p>Kuota terbatas! Segera daftarkan diri ke ketua divisi Design.</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span>Ketua Divisi Design</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="fas fa-thumbs-up"></i> 18</button>
+                            <button class="action-btn"><i class="fas fa-comment"></i> 5</button>
+                            <button class="action-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery" id="gallerySection">
+                <h2 class="section-title">Galeri Kegiatan</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        
+                        <div class="gallery-overlay">
+                            <h4>Workshop Web Development</h4>
+                            <p>15 November 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-palette"></i>
+                        <div class="gallery-overlay">
+                            <h4>Kompetisi Desain Grafis</h4>
+                            <p>20 November 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-video"></i>
+                        <div class="gallery-overlay">
+                            <h4>Peluncuran Media Sosial</h4>
+                            <p>29 November 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-users"></i>
+                        <div class="gallery-overlay">
+                            <h4>Rapat Bulanan</h4>
+                            <p>1 Desember 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-code"></i>
+                        <div class="gallery-overlay">
+                            <h4>Latihan Coding Bersama</h4>
+                            <p>5 Desember 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div class="gallery-overlay">
+                            <h4>Setup Jaringan Lab</h4>
+                            <p>8 Desember 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-camera"></i>
+                        <div class="gallery-overlay">
+                            <h4>Sesi Fotografi</h4>
+                            <p>11 Desember 2025</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-film"></i>
+                        <div class="gallery-overlay">
+                            <h4>Pelatihan Video Editing</h4>
+                            <p>12 Desember 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel Section -->
+            <section class="admin-panel" id="adminPanelSection">
+                <h2 class="section-title">Admin Panel</h2>
+                <div class="admin-nav">
+                    <div class="admin-nav-item active" data-tab="members">Anggota</div>
+                    <div class="admin-nav-item" data-tab="tasks">Tugas</div>
+                    <div class="admin-nav-item" data-tab="projects">Proyek</div>
+                    <div class="admin-nav-item" data-tab="announcements">Pengumuman</div>
+                </div>
+                <div class="admin-content">
+                    <div class="admin-tab-content" id="membersTab">
+                        <h3>Daftar Anggota</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Divisi</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Ahmad Rizki</td>
+                                    <td>ahmad@example.com</td>
+                                    <td>Coding</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>Siti Aisyah</td>
+                                    <td>siti@example.com</td>
+                                    <td>Design</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Budi Santoso</td>
+                                    <td>budi@example.com</td>
+                                    <td>Media</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>004</td>
+                                    <td>Dwi Lestari</td>
+                                    <td>dwi@example.com</td>
+                                    <td>Teknis</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="admin-tab-content" id="tasksTab" style="display: none;">
+                        <h3>Daftar Tugas</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama Tugas</th>
+                                    <th>Divisi</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Desain Logo Club IT</td>
+                                    <td>Design</td>
+                                    <td>19 Desember 2025</td>
+                                    <td>Dalam Proses</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>Pengembangan Website Club</td>
+                                    <td>Coding</td>
+                                    <td>20 Desember 2025</td>
+                                    <td>Dalam Proses</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Dokumentasi Kegiatan Workshop</td>
+                                    <td>Media</td>
+                                    <td>30 Desember 2025</td>
+                                    <td>Selesai</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="admin-tab-content" id="projectsTab" style="display: none;">
+                        <h3>Daftar Proyek</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama Proyek</th>
+                                    <th>Divisi</th>
+                                    <th>Tanggal Mulai</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Website Club IT</td>
+                                    <td>Coding</td>
+                                    <td>1 Januari 2026</td>
+                                    <td>Dalam Proses</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>Branding Club IT</td>
+                                    <td>Design</td>
+                                    <td>2 Januari 2026</td>
+                                    <td>Selesai</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Dokumentasi Kegiatan</td>
+                                    <td>Media</td>
+                                    <td>4 Januari 2026</td>
+                                    <td>Dalam Proses</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="admin-tab-content" id="announcementsTab" style="display: none;">
+                        <h3>Daftar Pengumuman</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Judul</th>
+                                    <th>Penulis</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Rapat Bulanan Club IT</td>
+                                    <td>Admin</td>
+                                    <td>5 Januari 2026</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>Pendaftaran Anggota Baru Dibuka</td>
+                                    <td>Admin</td>
+                                    <td>10 Januari 2026</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Workshop UI/UX Design</td>
+                                    <td>Divisi Design</td>
+                                    <td>15 Januari 2026</td>
+                                    <td>Aktif</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn">Edit</button>
+                                            <button class="delete-btn">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Club IT</h3>
+                    <p>Club IT SMP Muhammadiyah Cipanas adalah wadah bagi siswa yang tertarik dengan dunia teknologi informasi untuk mengembangkan skill dan bakat.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#" id="footerHome">Beranda</a></li>
+                        <li><a href="#" id="footerAbout">Tentang Kami</a></li>
+                        <li><a href="#" id="footerActivities">Kegiatan</a></li>
+                        <li><a href="#" id="footerGallery">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Divisi</h3>
+                    <ul>
+                        <li><a href="#" id="footerCoding">Coding</a></li>
+                        <li><a href="#" id="footerMedia">Media</a></li>
+                        <li><a href="#" id="footerDesign">Design</a></li>
+                        <li><a href="#" id="footerTeknis">Teknis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hubungi Kami</h3>
+                    <p>SMP Muhammadiyah Cipanas</p>
+                    <p>Jl. Sukasari No 47 Cipanas</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" id="twitterLink"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" id="youtubeLink"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Club IT SMP Muhammadiyah Cipanas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Register Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="tabs">
+                <div class="tab active" id="loginTab">Login</div>
+                <div class="tab" id="registerTab">Daftar</div>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="registerForm" style="display: none;">
+                <div class="form-group">
+                    <label for="registerName">Nama Lengkap</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerClass">Kelas</label>
+                    <select id="registerClass" required>
+                        <option value="">Pilih Kelas</option>
+                        <option value="VII">Kelas VII</option>
+                        <option value="VIII">Kelas VIII</option>
+                        <option value="IX">Kelas IX</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="registerDivision">Divisi</label>
+                    <select id="registerDivision" required>
+                        <option value="">Pilih Divisi</option>
+                        <option value="Coding">Coding</option>
+                        <option value="Media">Media</option>
+                        <option value="Design">Design</option>
+                        <option value="Teknis">Teknis</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="registerAvatar">Foto Profil (Opsional)</label>
+                    <div class="file-upload">
+                        <input type="file" id="registerAvatar" accept="image/*">
+                        <label for="registerAvatar" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i> Pilih File
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // DOM Elements
+        const homeSection = document.getElementById('homeSection');
+        const dashboardSection = document.getElementById('dashboardSection');
+        const profileSection = document.getElementById('profileSection');
+        const announcementsSection = document.getElementById('announcementsSection');
+        const gallerySection = document.getElementById('gallerySection');
+        const adminPanelSection = document.getElementById('adminPanelSection');
+        
+        const homeLink = document.getElementById('homeLink');
+        const dashboardLink = document.getElementById('dashboardLink');
+        const profileLink = document.getElementById('profileLink');
+        const announcementsLink = document.getElementById('announcementsLink');
+        const galleryLink = document.getElementById('galleryLink');
+        const adminLink = document.getElementById('adminLink');
+        
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const joinBtn = document.getElementById('joinBtn');
+        
+        const authModal = document.getElementById('authModal');
+        const closeModal = document.getElementById('closeModal');
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        const toast = document.getElementById('toast');
+        
+        const profileAvatar = document.getElementById('profileAvatar');
+        const changeAvatarBtn = document.getElementById('changeAvatarBtn');
+        
+        const quickProfile = document.getElementById('quickProfile');
+        const quickGallery = document.getElementById('quickGallery');
+        const quickAnnouncements = document.getElementById('quickAnnouncements');
+        const quickAdmin = document.getElementById('quickAdmin');
+        
+        const adminNavItems = document.querySelectorAll('.admin-nav-item');
+        
+        // Footer links
+        const footerHome = document.getElementById('footerHome');
+        const footerAbout = document.getElementById('footerAbout');
+        const footerActivities = document.getElementById('footerActivities');
+        const footerGallery = document.getElementById('footerGallery');
+        const footerCoding = document.getElementById('footerCoding');
+        const footerMedia = document.getElementById('footerMedia');
+        const footerDesign = document.getElementById('footerDesign');
+        const footerTeknis = document.getElementById('footerTeknis');
+        const facebookLink = document.getElementById('facebookLink');
+        const twitterLink = document.getElementById('twitterLink');
+        const instagramLink = document.getElementById('instagramLink');
+        const youtubeLink = document.getElementById('youtubeLink');
+        
+        // File upload
+        const registerAvatar = document.getElementById('registerAvatar');
+        const fileUploadLabel = document.querySelector('.file-upload-label');
+        
+        // State
+        let isLoggedIn = false;
+        let currentUser = {
+            name: '',
+            email: '',
+            division: '',
+            class: '',
+            avatar: null
+        };
+        
+        // Event Listeners
+        loginBtn.addEventListener('click', () => {
+            authModal.style.display = 'flex';
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        });
+        
+        joinBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+        
+        logoutBtn.addEventListener('click', () => {
+            isLoggedIn = false;
+            currentUser = {
+                name: '',
+                email: '',
+                division: '',
+                class: '',
+                avatar: null
+            };
+            updateUI();
+            showToast('Anda telah berhasil logout');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            authModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+            }
+        });
+        
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        });
+        
+        registerTab.addEventListener('click', () => {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+        
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simulasi login
+            if (email && password) {
+                isLoggedIn = true;
+                currentUser = {
+                    name: email.split('@')[0],
+                    email: email,
+                    division: 'Coding',
+                    class: 'VIII',
+                    avatar: null
+                };
+                updateUI();
+                authModal.style.display = 'none';
+                showToast('Login berhasil!');
+                
+                // Reset form
+                loginForm.reset();
+            }
+        });
+        
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const classValue = document.getElementById('registerClass').value;
+            const division = document.getElementById('registerDivision').value;
+            
+            // Simulasi registrasi
+            if (name && email && password && classValue && division) {
+                isLoggedIn = true;
+                currentUser = {
+                    name: name,
+                    email: email,
+                    division: division,
+                    class: classValue,
+                    avatar: null
+                };
+                
+                // Handle avatar if uploaded
+                if (registerAvatar.files && registerAvatar.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        currentUser.avatar = e.target.result;
+                        updateUI();
+                    };
+                    reader.readAsDataURL(registerAvatar.files[0]);
+                } else {
+                    updateUI();
+                }
+                
+                authModal.style.display = 'none';
+                showToast('Registrasi berhasil! Anda sekarang sudah login.');
+                
+                // Reset form
+                registerForm.reset();
+                fileUploadLabel.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Pilih File';
+            }
+        });
+        
+        // File upload handler
+        registerAvatar.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                fileUploadLabel.innerHTML = `<i class="fas fa-check"></i> ${file.name}`;
+            }
+        });
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Navigation
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('home');
+        });
+        
+        dashboardLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('dashboard');
+        });
+        
+        profileLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('profile');
+        });
+        
+        announcementsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('announcements');
+        });
+        
+        galleryLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('gallery');
+        });
+        
+        adminLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('admin');
+        });
+        
+        // Footer navigation
+        footerHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('home');
+        });
+        
+        footerAbout.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Tentang Kami akan segera tersedia');
+        });
+        
+        footerActivities.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Kegiatan akan segera tersedia');
+        });
+        
+        footerGallery.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('gallery');
+        });
+        
+        footerCoding.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Divisi Coding akan segera tersedia');
+        });
+        
+        footerMedia.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Divisi Media akan segera tersedia');
+        });
+        
+        footerDesign.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Divisi Design akan segera tersedia');
+        });
+        
+        footerTeknis.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Halaman Divisi Teknis akan segera tersedia');
+        });
+        
+        // Social media links
+        facebookLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Facebook: @clubitsmpmuci');
+        });
+        
+        twitterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Twitter: @clubitsmpmuci');
+        });
+        
+        instagramLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Instagram: @it.club_smpmuci');
+        });
+        
+        youtubeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('YouTube: Club IT SMP Muhammadiyah Cipanas');
+        });
+        
+        // Quick Navigation
+        quickProfile.addEventListener('click', () => {
+            showSection('profile');
+        });
+        
+        quickGallery.addEventListener('click', () => {
+            showSection('gallery');
+        });
+        
+        quickAnnouncements.addEventListener('click', () => {
+            showSection('announcements');
+        });
+        
+        quickAdmin.addEventListener('click', () => {
+            showSection('admin');
+        });
+        
+        // Admin Panel Tabs
+        adminNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const tabName = item.getAttribute('data-tab');
+                
+                // Update active tab
+                adminNavItems.forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                item.classList.add('active');
+                
+                // Show corresponding content
+                document.querySelectorAll('.admin-tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById(`${tabName}Tab`).style.display = 'block';
+            });
+        });
+        
+        // Division Cards
+        document.querySelectorAll('.division-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const division = card.getAttribute('data-division');
+                showToast(`Anda mengklik divisi ${division}`);
+            });
+        });
+        
+        // Change Avatar
+        changeAvatarBtn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        currentUser.avatar = e.target.result;
+                        profileAvatar.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+                        showToast('Foto profil berhasil diubah!');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+        
+        // Functions
+        function showSection(section) {
+            // Hide all sections
+            homeSection.style.display = 'none';
+            dashboardSection.style.display = 'none';
+            profileSection.style.display = 'none';
+            announcementsSection.style.display = 'none';
+            gallerySection.style.display = 'none';
+            adminPanelSection.style.display = 'none';
+            
+            // Show selected section
+            switch(section) {
+                case 'home':
+                    homeSection.style.display = 'block';
+                    break;
+                case 'dashboard':
+                    dashboardSection.style.display = 'block';
+                    break;
+                case 'profile':
+                    profileSection.style.display = 'block';
+                    break;
+                case 'announcements':
+                    announcementsSection.style.display = 'block';
+                    break;
+                case 'gallery':
+                    gallerySection.style.display = 'block';
+                    break;
+                case 'admin':
+                    adminPanelSection.style.display = 'block';
+                    break;
+            }
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+        }
+        
+        function updateUI() {
+            if (isLoggedIn) {
+                // Show member-only navigation
+                dashboardLink.style.display = 'block';
+                profileLink.style.display = 'block';
+                announcementsLink.style.display = 'block';
+                adminLink.style.display = 'block';
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                
+                // Update user info in dashboard
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userDivision').textContent = currentUser.division;
+                
+                // Update profile info
+                document.getElementById('profileName').textContent = currentUser.name;
+                document.getElementById('profileDivision').textContent = currentUser.divisi;
+                document.getElementById('fullNameValue').textContent = currentUser.name;
+                document.getElementById('emailValue').textContent = currentUser.email;
+                document.getElementById('divisionValue').textContent = currentUser.division;
+                
+                // Update profile avatar
+                if (currentUser.avatar) {
+                    profileAvatar.innerHTML = `<img src="${currentUser.avatar}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+                } else {
+                    profileAvatar.innerHTML = '<i class="fas fa-user"></i>';
+                }
+                
+                // Show dashboard by default
+                showSection('dashboard');
+            } else {
+                // Hide member-only navigation
+                dashboardLink.style.display = 'none';
+                profileLink.style.display = 'none';
+                announcementsLink.style.display = 'none';
+                adminLink.style.display = 'none';
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+                
+                // Show home by default
+                showSection('home');
+            }
+        }
+        
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize
+        updateUI();
+    </script>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- External JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
